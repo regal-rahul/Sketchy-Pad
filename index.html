@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Neucha|Inter"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./reset.css" />
     <title>Sketchy Pad</title>
@@ -11,18 +19,17 @@
   <body>
     <div class="flex-container">
       <div class="title">
-        <h1>Sketchy Pad - Work in progress</h1>
-        <p>Click to switch coloring mode.</p>
+        <h1>Sketchy Pad</h1>
       </div>
       <div class="mode">Mode: Coloring</div>
       <div class="content">
         <div class="board"></div>
         <div class="buttons">
-          <button onclick="changeColor('black')">Black</button>
-          <button onclick="changeColor('white')">Eraser</button>
-          <button onclick="changeColor('gray')">Gray</button>
-          <button onclick="changeColor('random')">Random</button>
-          <button onclick="resetBoard()">Reset</button>
+          <button id="black" onclick="changeColor('black')">Black</button>
+          <button id="eraser" onclick="changeColor('white')">Eraser</button>
+          <button id="gray" onclick="changeColor('gray')">Gray</button>
+          <button id="random" onclick="changeColor('random')">Random</button>
+          <button id="reset" onclick="resetBoard()">Reset</button>
         </div>
         <div>
           <input
@@ -35,6 +42,12 @@
           />
           <button>Set Size</button>
         </div>
+        <div class="error">Box Size must be between 2 and 100.</div>
+      </div>
+      <div id="footer">
+        <a href="https://github.com/regal-rahul/Sketchy-Pad">
+          <i class="fa fa-github"></i> Regal Rahul</a
+        >
       </div>
     </div>
   </body>

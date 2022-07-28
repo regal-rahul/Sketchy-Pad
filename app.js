@@ -1,6 +1,7 @@
 let color = "black";
 let click = true;
 
+
 function populateBoard(size) {
     let board = document.querySelector('.board');
     let squares = board.querySelectorAll('div');
@@ -9,7 +10,7 @@ function populateBoard(size) {
     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
     let amount = size * size;
-    for (let i = 0; i < 256; i++) {
+    for (let i = 0; i < amount; i++) {
         let square = document.createElement("div");
         square.addEventListener('mouseover', colorSquare)
         square.style.backgroundColor = "white";
@@ -21,9 +22,10 @@ populateBoard(16);
 
 function changeSize(input) {
     if (input >= 2 && input <=100) {
+        document.querySelector('.error').style.display = 'none';
         populateBoard(input);
     } else {
-        console.log('Too many squares');
+        document.querySelector('.error').style.display = 'flex';
     }
 }
 
@@ -47,11 +49,14 @@ function resetBoard() {
     squares.forEach((div) => div.style.backgroundColor = "white");
 }
 
-document.querySelector('body').addEventListener('click', () => {
-    click = !click;
-    if (click) {
-        document.querySelector('.mode').textContent = "Mode: Coloring";
-    } else {
-        document.querySelector('.mode').textContent = "Mode: Not Coloring";
+document.querySelector('body').addEventListener('click', (e) => {
+    if (e.target.tagName != "BUTTON") {
+        click = !click;
+        if (click) {
+            document.querySelector('.mode').textContent = "Mode: Coloring";
+        } else {
+            document.querySelector('.mode').textContent = "Mode: Not Coloring";
+        }
     }
 });
+
